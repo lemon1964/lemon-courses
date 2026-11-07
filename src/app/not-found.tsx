@@ -1,0 +1,1 @@
+import Link from "next/link";export default function NotFound(){return <main className="container inner-page"><h1>Страница не найдена</h1><p>Проверьте адрес или вернитесь к списку материалов.</p><Link className="button" href="/">На главную</Link></main>}

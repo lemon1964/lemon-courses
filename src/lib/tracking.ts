@@ -1,0 +1,1 @@
+export function stepikHref(url:string,src:string){ const next=new URL(url); next.searchParams.set("utm_source","lemon_courses"); next.searchParams.set("utm_medium","site"); next.searchParams.set("utm_campaign","поиск_курсы_2026"); next.searchParams.set("utm_content",src); return next.toString(); }
