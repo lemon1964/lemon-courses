@@ -156,10 +156,10 @@ export function ApprovedArticleBody({ slug }: { slug: string }) {
 {"Один запрос к модели легко уместить в несколько строк. Но у приложения с пользователями появляются авторизация, серверное API, управление моделями, история переписки и обработка сбоев."}
 </p>
 <p>
-{"Посмотрите "}<TrackedLink href={"https://ai-chat-frontend-wy6h.onrender.com/"} event={TRACK_EVENTS.articleDemo} src={articleProjectSource("статья_free_llm_api",2)}>{"AI-Chat"}</TrackedLink>{". Это пример того, во что может вырасти простой эксперимент с LLM API."}
+{"Посмотрите "}<TrackedLink href={"https://ai-chat-frontend-wy6h.onrender.com/"} event={TRACK_EVENTS.articleDemo} src={articleProjectSource("статья_3",2)}>{"AI-Chat"}</TrackedLink>{". Это пример того, во что может вырасти простой эксперимент с LLM API."}
 </p>
 <p>
-{"В курсе "}<TrackedLink href={stepikHref("https://stepik.org/a/250427?utm_source=lemon-courses&utm_medium=article&utm_campaign=free-llm-api-for-app",articleCourseSource("статья_free_llm_api",2),"free-llm-api-for-app")} event={TRACK_EVENTS.articleStepik} src={articleCourseSource("статья_free_llm_api",2)}>{"«AI на Django и Next II»"}</TrackedLink>{" мы последовательно собираем такие механизмы на Django и Next.js. От серверных запросов к моделям до интерфейса полноценного AI-приложения."}
+{"В курсе "}<TrackedLink href={stepikHref("https://stepik.org/a/250427?utm_source=lemon-courses&utm_medium=article&utm_campaign=free-llm-api-for-app",articleCourseSource("статья_3",2),"free-llm-api-for-app")} event={TRACK_EVENTS.articleStepik} src={articleCourseSource("статья_3",2)}>{"«AI на Django и Next II»"}</TrackedLink>{" мы последовательно собираем такие механизмы на Django и Next.js. От серверных запросов к моделям до интерфейса полноценного AI-приложения."}
 </p>
 <p>
 {"Для разработчиков, уже собравших первый прототип с помощью ИИ, это возможность разобраться в его backend и API."}
@@ -297,10 +297,10 @@ export function ApprovedArticleBody({ slug }: { slug: string }) {
 {"Нужно отправить данные на сервер, сохранить их, показать новую запись в списке, обработать ошибку сохранения. Иногда полезно обновлять интерфейс сразу, не дожидаясь ответа сервера, или автоматически сохранять изменения в редакторе."}
 </p>
 <p>
-{"Эти задачи мы разбираем в курсовом проекте "}<TrackedLink href={"https://workbench-ts.onrender.com/"} event={TRACK_EVENTS.articleDemo} src={articleProjectSource("статья_react_hook_form_zod",5)}>{"Workbench Notes"}</TrackedLink>{". Там формы связаны с созданием заметок, Server Actions, обновлениями интерфейса и автосохранением."}
+{"Эти задачи мы разбираем в курсовом проекте "}<TrackedLink href={"https://workbench-ts.onrender.com/"} event={TRACK_EVENTS.articleDemo} src={articleProjectSource("статья_4",5)}>{"Workbench Notes"}</TrackedLink>{". Там формы связаны с созданием заметок, Server Actions, обновлениями интерфейса и автосохранением."}
 </p>
 <p>
-{"Разработчикам, знакомым с React и осваивающим надёжную разработку на TypeScript и Next.js, адресован курс "}<TrackedLink href={stepikHref("https://stepik.org/a/275811?utm_source=lemon-courses&utm_medium=article&utm_campaign=react-hook-form-zod-validation",articleCourseSource("статья_react_hook_form_zod",5),"react-hook-form-zod-validation")} event={TRACK_EVENTS.articleStepik} src={articleCourseSource("статья_react_hook_form_zod",5)}>{"«Next.js II: TypeScript 2026»"}</TrackedLink>{"."}
+{"Разработчикам, знакомым с React и осваивающим надёжную разработку на TypeScript и Next.js, адресован курс "}<TrackedLink href={stepikHref("https://stepik.org/a/275811?utm_source=lemon-courses&utm_medium=article&utm_campaign=react-hook-form-zod-validation",articleCourseSource("статья_4",5),"react-hook-form-zod-validation")} event={TRACK_EVENTS.articleStepik} src={articleCourseSource("статья_4",5)}>{"«Next.js II: TypeScript 2026»"}</TrackedLink>{"."}
 </p>
 <p>
 {"Начинать удобно именно с формы. На ней хорошо видно, как TypeScript, проверка данных и интерфейс начинают работать вместе."}

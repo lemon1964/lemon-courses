@@ -1,5 +1,6 @@
+import { Pair02ArticleBody } from "@/components/Pair02ArticleBody";
 import { ApprovedArticleBody } from "@/components/ApprovedArticleBody";
-export function ArticleBody({slug}:{slug:string}){if(slug==="free-llm-api-for-app" || slug==="react-hook-form-zod-validation") return <ApprovedArticleBody slug={slug}/>;if(slug==="seo-nextjs-app-router")return <>
+export function ArticleBody({slug}:{slug:string}){if(slug==="accept-payments-on-website" || slug==="react-typescript-props-data") return <Pair02ArticleBody slug={slug}/>;if(slug==="free-llm-api-for-app" || slug==="react-hook-form-zod-validation") return <ApprovedArticleBody slug={slug}/>;if(slug==="seo-nextjs-app-router")return <>
 <h2>Что именно должна обеспечить техническая SEO-основа</h2><p>Поисковому роботу нужны доступные HTML-страницы, понятные URL и согласованные указания об индексации. В App Router Next.js эти задачи распределены между метаданными маршрутов, специальными файлами sitemap и robots и серверным рендерингом. Наличие тегов само по себе не гарантирует индексацию или позиции.</p>
 <h2>1. Начните с карты маршрутов</h2><p>Для проекта с несколькими языками сначала перечислите индексируемые страницы, затем определите канонический адрес каждой. Например, русская карточка события должна иметь собственный URL, язык и фильтры не следует неявно смешивать с адресом канонической страницы.</p><pre><code>{`app/
   [locale]/
