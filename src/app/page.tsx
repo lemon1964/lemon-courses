@@ -4,7 +4,7 @@ import Link from "next/link";
 import { courses, articles } from "@/lib/data";
 import { stepikHref } from "@/lib/tracking";
 import { TrackedLink } from "@/components/TrackedLink";
-export const metadata={alternates:{canonical:"/"},...socialMetadata("Курсы разработки на Next.js, Django и AI","Практические курсы Next.js, Django REST Framework и AI: учебные проекты, примеры и статьи для разработчиков.","/")};
+export const metadata={alternates:{canonical:"/"},...socialMetadata("Курсы разработки на Next.js, Django и AI","Учебные проекты, примеры и статьи для разработчиков.","/")};
 const groups=[{key:"ai",label:"Линейка 01 / AI + Django",title:"От интерфейса AI-чата к микро-SaaS",desc:""},{key:"next",label:"Линейка 02 / Next.js",title:"От App Router до SEO и сложной архитектуры",desc:"JavaScript, TypeScript, индексация и локализованные маршруты на реальных учебных проектах."}] as const;
 export default function Home(){return <main>
 <section className="hero"><div className="container hero-content"><div className="eyebrow">курсы разработки</div><h1>Создание приложений</h1><p className="hero-lead">Две линейки курсов по Next.js, Django и AI с учебными проектами. От интерфейса до API, SEO и платежей.</p><div className="hero-actions"><Link className="button" href="#courses">Смотреть курсы <span aria-hidden>↗</span></Link><Link className="button button-muted" href="/articles">Читать статьи</Link></div></div></section>
