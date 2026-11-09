@@ -4,7 +4,7 @@ node_modules
 *.tsbuildinfo
 .DS_Store
 
-# Internal working documents; remain on local disk and in lite handoffs..
+# Internal working documents; remain on local disk and in lite handoffs.
 /docs/
 /_sources/
 .env
