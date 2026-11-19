@@ -1,7 +1,8 @@
 import {socialMetadata} from "@/lib/social";
 import { TRACK_EVENTS, courseSource, projectSource } from "@/lib/tracking-events";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import Image from "next/image";
+import type { CSSProperties, ReactNode } from "react";
 import { courses, articles, reviews, proof } from "@/lib/data";
 import { stepikHref } from "@/lib/tracking";
 import { TrackedLink } from "@/components/TrackedLink";
@@ -9,8 +10,8 @@ import "./home.css";
 export const metadata={alternates:{canonical:"/"},...socialMetadata("Курсы разработки на Next.js, Django и AI","Учебные проекты, примеры и статьи для разработчиков.","/")};
 
 const tracks=[
-  {key:"ai",name:"AI + Django",title:"Своё AI-приложение: от чата до оплаты",fit:"Подойдёт фронтендерам, которые хотят освоить Django, бэкендерам, которым нужны React и Next.js, и новичкам: первый курс собран из готовых блоков кода."},
-  {key:"next",name:"Next.js",title:"Next.js: от первого маршрута до сайта в поиске",fit:"Подойдёт, если вы знаете JavaScript и React, но Next.js пока кажется сложным."},
+  {key:"ai",name:"Бэкенд и AI на Django",title:"Своё AI-приложение: от чата до оплаты",fit:"Подойдёт фронтендерам, которые хотят освоить Django, бэкендерам, которым нужны React и Next.js, и новичкам: первый курс собран из готовых блоков кода."},
+  {key:"next",name:"Фронтенд на Next.js",title:"Next.js: от первого маршрута до сайта в поиске",fit:"Подойдёт, если вы знаете JavaScript и React, но Next.js пока кажется сложным."},
 ] as const;
 
 // Layers of a real web app and the courses that build each one (course ids).
@@ -23,6 +24,8 @@ const layers=[
 ];
 // shortcut: names as text wordmarks; swap in official SVG logos once you have the right to use them.
 const places=["Сбер","Яндекс","МФТИ","МГТУ им. Н. Э. Баумана","МАДИ"];
+// Brand marks from Simple Icons (CC0), coloured in public/logos/*.svg.
+const stack=[["nextdotjs","Next.js"],["react","React"],["typescript","TypeScript"],["django","Django"],["python","Python"],["openai","ChatGPT"],["claude","Claude"],["deepseek","DeepSeek"],["supabase","Supabase"]] as const;
 const byId=(id:number)=>courses.find(c=>c.id===id)!;
 const rub=(n:number)=>`${n.toLocaleString("ru-RU")} ₽`;
 const lessons=courses.reduce((s,c)=>s+c.lessons,0);
@@ -35,6 +38,8 @@ const how=[
   {title:"Свой проект в конце",text:"Код остаётся у вас: выкладываете в интернет и показываете.",icon:<><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></>},
   {title:"Сертификат Stepik",text:"Выдаётся автоматически, когда решены задания.",icon:<><circle cx="12" cy="9" r="5"/><path d="m9 13.5-1.5 7 4.5-2.5 4.5 2.5-1.5-7"/></>},
 ];
+// Fill width is the exact rating, so 4,9 shows five stars with the last one almost full.
+const RatingStars=({value}:{value:string})=><span className="h-rating" style={{"--r":`${parseFloat(value.replace(",","."))/5*100}%`} as CSSProperties} aria-hidden>★★★★★</span>;
 const Stars=({n}:{n:number})=><span className="h-stars" aria-label={`Оценка ${n} из 5`}>{"★".repeat(n)}<span aria-hidden>{"★".repeat(5-n)}</span></span>;
 
 function Marquee({className,label,children}:{className:string;label:string;children:ReactNode}){
@@ -47,19 +52,20 @@ export default function Home(){return <main className="home">
   <div className="h-hero-text">
     <h1>От первой строки кода до первого платежа</h1>
     <p className="h-lead">Соберите своё приложение целиком: интерфейс, сервер, нейросеть и оплату. Выложите его в интернет и покажите тем, кто будет им пользоваться и платить: работодателю, клиенту или первым пользователям.</p>
-    <div className="h-actions"><Link className="button h-cta" href="#courses">Выбрать свой курс</Link><Link className="button button-muted" href="#reviews">Почитать отзывы</Link></div>
+    <div className="h-actions"><Link className="button h-cta" href="#courses">Выбрать свой курс</Link></div>
     <dl className="h-proof">
       <div><dt>учеников на Stepik</dt><dd>{proof.learners}</dd></div>
-      <div><dt>средняя оценка, {proof.reviewsCount} отзывов</dt><dd>{proof.rating} <span aria-hidden>★</span></dd></div>
+      <div><dt>средняя оценка</dt><dd>{proof.rating} <RatingStars value={proof.rating}/></dd></div>
       <div><dt>уроков в шести курсах</dt><dd>{lessons}</dd></div>
     </dl>
   </div>
-  <figure className="h-stack" aria-labelledby="stack-caption">
+  <div className="h-stack-wrap"><figure className="h-stack" aria-labelledby="stack-caption">
+    <span className="h-window-bar" aria-hidden><i/><i/><i/></span>
     <figcaption id="stack-caption">Один запрос пользователя проходит через всё приложение. Каждую часть вы соберёте сами.</figcaption>
     <div className="h-flow"><span className="h-pulse" aria-hidden/><ol>
       {layers.map(l=><li key={l.name}><div><b>{l.name}</b><span>{l.tech}</span></div><div className="h-stack-tags">{l.ids.map(id=><a key={id} href={`#course-${id}`} className={`h-tag h-tag-${byId(id).line} t-${id}`} aria-label={byId(id).title}>{tagName(id)}</a>)}</div></li>)}
     </ol></div>
-  </figure>
+  </figure></div>
 </section>
 
 <section className="h-places" aria-labelledby="places-title">
@@ -71,13 +77,18 @@ export default function Home(){return <main className="home">
   {how.map(h=><div key={h.title}><Icon>{h.icon}</Icon><p><b>{h.title}</b>{h.text}</p></div>)}
 </section>
 
+<section className="h-stackband" aria-labelledby="stack-title"><p id="stack-title" className="container">Стек, который вы освоите на курсах</p>
+  <Marquee className="h-logos-marquee" label="Технологии и нейросети в курсах">{stack.map(([file,name])=><span className="h-logo" key={file}><Image src={`/logos/${file}.svg`} alt="" width={30} height={30}/>{name}</span>)}</Marquee>
+</section>
+
 <section className="h-courses" id="courses"><div className="container">
-  <h2>Две линейки курсов</h2>
+  <h2>Бэкенд или фронтенд: выберите свою линейку</h2>
   <p className="h-section-lead">Курсы в линейке идут по порядку: каждый продолжает проект или навыки предыдущего. Начать можно с любого, если вы уже знаете то, что нужно на входе.</p>
   {tracks.map(t=><div className={`h-track h-track-${t.key}`} key={t.key}>
     <header className="h-track-head"><span className="h-track-name">{t.name}</span><h3>{t.title}</h3><p>{t.fit}</p></header>
     <ol className="h-rail">{courses.filter(c=>c.line===t.key).map(c=><li className="h-course" id={`course-${c.id}`} key={c.id}>
       <span className="h-node" aria-hidden>{c.step}</span>
+      <Image className="h-course-img" src={`/courses/course-${c.id}.png`} alt="" width={460} height={460} sizes="(max-width:1050px) 200px, 200px"/>
       <div className="h-course-main">
         <h4>{c.title}</h4>
         <p>{c.summary}</p>
@@ -108,8 +119,8 @@ export default function Home(){return <main className="home">
     <li><b>Навык фулстека</b>Понимание, как фронтенд, бэкенд и внешние сервисы работают вместе.</li>
   </ul>
   <div className="h-actions">
-    <a className="button h-cta" href="#course-1">Начать с AI-линейки за {rub(byId(1).price)}</a>
-    <a className="button h-cta-ghost" href="#course-4">Начать с Next.js за {rub(byId(4).price)}</a>
+    <a className="button h-cta" href="#course-1">Начать с бэкенда и AI за {rub(byId(1).price)}</a>
+    <a className="button h-cta-ghost" href="#course-4">Начать с фронтенда за {rub(byId(4).price)}</a>
   </div>
 </div></section>
 

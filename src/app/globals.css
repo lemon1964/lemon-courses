@@ -26,3 +26,15 @@ h1,h2{font-weight:500;letter-spacing:-.02em!important}
 .button{font-family:inherit}
 .header-cta{background:linear-gradient(120deg,#0b7a8b,#3b4cca);color:#fff;border:0;box-shadow:0 6px 16px -6px rgba(59,76,202,.55)}
 .header-cta:hover{filter:brightness(1.08)}
+/* Theme from the course covers: white page, black outlines with hard offset shadows, violet + yellow + Django green. */
+:root{--bg:#fff;--ink:#14122b;--sub:#3e3b56;--muted:#66637d;--line:#e4e2ee;--green:#4f46e5;--strong:#3a31c9;--greenlight:#eeedfd;--blue:#4f46e5;--indigo:#4f46e5;--yellow:#ffd84d;--django:#0c4b33;--mint:#44b78b;--pink:#f5a9f7;--edge:#000;--press:cubic-bezier(.34,1.56,.64,1)}
+.site-header{background:rgba(255,255,255,.92);border-bottom:2px solid var(--edge)}
+.header-cta,.header-cta:hover{background:var(--yellow);color:#000;border:2px solid var(--edge);box-shadow:3px 3px 0 var(--edge);filter:none;transition:transform .2s var(--press),box-shadow .2s var(--press)}
+.header-cta:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--edge)}
+.header-cta:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--edge)}
+.footer{border-top:2px solid var(--edge)}
+.brand{font-size:20px;font-weight:600;letter-spacing:-.04em;gap:11px}
+.brand strong{font-weight:600}
+.brand span{font-weight:500}
+.brand-logo{width:36px;height:36px;transition:transform .4s var(--press)}
+.brand:hover .brand-logo{transform:rotate(-12deg) scale(1.06)}
