@@ -1,0 +1,158 @@
+/* Home page. Track colour encodes the course line: teal = AI + Django, indigo = Next.js. */
+.home{--ai:var(--green);--ai-soft:#e0f2f4;--next:var(--indigo);--next-soft:#e7e9fb;--grad:linear-gradient(120deg,#0b7a8b,#3b4cca)}
+
+/* CTAs: the gradient joins both course lines. */
+.h-cta{min-height:56px;padding:15px 28px;font-size:16px;border:0;border-radius:12px;background:var(--grad);box-shadow:0 10px 24px -8px rgba(59,76,202,.55);transition:transform .15s,box-shadow .15s,filter .15s}
+.h-cta:hover{background:var(--grad);transform:translateY(-2px);box-shadow:0 14px 30px -8px rgba(59,76,202,.65);filter:brightness(1.08)}
+.h-cta-ghost{min-height:56px;padding:15px 28px;font-size:16px;border-radius:12px;background:transparent;border:1.5px solid rgba(255,255,255,.55)}
+.h-cta-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+.h-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;padding:88px 0 64px}
+.h-hero h1{font-size:clamp(34px,4.2vw,58px);font-weight:600;line-height:1.08;margin:0 0 24px;max-width:13ch}
+.h-lead{font-size:18px;line-height:1.65;color:var(--sub);max-width:34em;margin:0}
+.h-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.h-actions .button-muted{min-height:56px;padding:15px 24px;font-size:15px;border-radius:12px}
+.h-proof{display:flex;gap:40px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.h-proof div{display:flex;flex-direction:column-reverse}
+.h-proof dt{font-size:13px;color:var(--muted)}
+.h-proof dd{margin:0;font-size:28px;font-weight:700;letter-spacing:-.02em}
+.h-proof dd span{color:#e8a20c}
+
+/* The app stack: a request pulse runs through the layers. */
+.h-stack{margin:0;background:var(--ink);color:#e8eef3;border-radius:20px;padding:26px 26px 18px 44px}
+.h-stack figcaption{font-size:14px;color:#a9b8c5;margin-bottom:16px;max-width:36em}
+.h-flow{position:relative}
+.h-flow::before{content:"";position:absolute;left:-19px;top:6px;bottom:6px;width:2px;background:#2c3d4c;border-radius:2px}
+.h-pulse{position:absolute;left:-24px;top:0;width:12px;height:12px;border-radius:50%;background:#5fd3e3;box-shadow:0 0 0 4px rgba(95,211,227,.18),0 0 18px 4px rgba(95,211,227,.55);animation:h-pulse 5s ease-in-out infinite}
+@keyframes h-pulse{0%{top:0;opacity:0}6%{opacity:1}80%{top:calc(100% - 12px);opacity:1}90%,100%{top:calc(100% - 12px);opacity:0}}
+.h-stack ol{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.h-stack li{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 16px;border:1px solid #2c3d4c;border-radius:12px;background:#1a2a38;animation:h-lit 5s ease-out infinite}
+.h-stack li:nth-child(1){animation-delay:.3s}.h-stack li:nth-child(2){animation-delay:1.1s}.h-stack li:nth-child(3){animation-delay:1.9s}.h-stack li:nth-child(4){animation-delay:2.7s}.h-stack li:nth-child(5){animation-delay:3.5s}
+@keyframes h-lit{0%{border-color:#5fd3e3;background:#1f3646}18%,100%{border-color:#2c3d4c;background:#1a2a38}}
+.h-stack li b{display:block;font-size:16px;color:#fff}
+.h-stack li span{display:block;font-size:13px;color:#a9b8c5}
+.h-stack-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.h-tag{font-size:12px;font-weight:700;padding:5px 9px;border-radius:6px;white-space:nowrap;color:#fff;transition:transform .15s,box-shadow .15s,opacity .15s}
+.h-tag-ai{background:#0e8fa3}
+.h-tag-next{background:#5466e0}
+.h-tag:focus-visible{outline-color:#fff}
+/* Hovering one course lights up every layer it covers. */
+.h-stack:has(.h-tag:hover,.h-tag:focus-visible) .h-tag{opacity:.35}
+.h-stack:has(.t-1:hover,.t-1:focus-visible) .t-1,.h-stack:has(.t-2:hover,.t-2:focus-visible) .t-2,.h-stack:has(.t-3:hover,.t-3:focus-visible) .t-3,.h-stack:has(.t-4:hover,.t-4:focus-visible) .t-4,.h-stack:has(.t-5:hover,.t-5:focus-visible) .t-5,.h-stack:has(.t-6:hover,.t-6:focus-visible) .t-6{opacity:1;transform:scale(1.08);box-shadow:0 0 0 2px #fff}
+
+/* Marquees: logos and reviews. */
+.h-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.h-marquee-track{display:flex;width:max-content;animation:h-scroll 30s linear infinite}
+.h-marquee:hover .h-marquee-track,.h-marquee:focus-within .h-marquee-track{animation-play-state:paused}
+.h-marquee-set{display:flex;align-items:stretch}
+@keyframes h-scroll{to{transform:translateX(-50%)}}
+
+.h-places{padding:8px 0 40px}
+.h-places>p{font-size:14px;color:var(--muted);margin-bottom:16px}
+.h-place{font-family:var(--font-display),sans-serif;font-weight:500;font-size:clamp(20px,2.2vw,28px);color:#7d8c99;white-space:nowrap;padding:0 44px;letter-spacing:-.01em}
+.h-places-marquee .h-marquee-track{animation-duration:24s}
+
+.h-how{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.h-how>div{display:flex;gap:14px;align-items:flex-start}
+.h-icon{flex:none;width:40px;height:40px;padding:8px;border-radius:10px;color:var(--green);background:var(--greenlight)}
+.h-how>div:nth-child(even) .h-icon{color:var(--indigo);background:#e7e9fb}
+.h-how p{margin:0;font-size:14px;color:var(--sub);line-height:1.5}
+.h-how b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+
+.h-courses{padding:96px 0 40px}
+.h-courses h2,.h-articles h2,.h-reviews h2{font-size:clamp(26px,2.8vw,36px);line-height:1.2;margin:0 0 12px}
+.h-section-lead{color:var(--sub);max-width:40em;margin:0}
+
+.h-track{--c:var(--ai);--soft:var(--ai-soft);--glow:rgba(11,122,139,.5);margin-top:64px}
+.h-track-next{--c:var(--next);--soft:var(--next-soft);--glow:rgba(59,76,202,.5)}
+.h-track-head{max-width:44em;margin-bottom:28px}
+.h-track-name{display:inline-block;font-size:13px;font-weight:700;color:var(--c);background:var(--soft);padding:4px 10px;border-radius:6px}
+.h-track-head h3{font-size:24px;letter-spacing:-.02em;line-height:1.25;margin:12px 0 8px}
+.h-track-head p{color:var(--sub);margin:0}
+
+/* Vertical rail: courses in a line are a real sequence I → II → III. */
+.h-rail{list-style:none;margin:0;padding:0;position:relative}
+.h-rail::before{content:"";position:absolute;left:21px;top:24px;bottom:24px;width:2px;background:var(--c);opacity:.35}
+.h-course{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:40px;margin-left:68px;padding:32px;background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.h-course+.h-course{margin-top:16px}
+.h-node{position:absolute;left:-68px;top:28px;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:var(--c);color:#fff;font-weight:700;font-size:15px;box-shadow:0 0 0 6px var(--bg)}
+.h-course h4{font-family:var(--font-display),sans-serif;font-weight:500;font-size:20px;line-height:1.3;margin:4px 0 12px}
+.h-course-main>p{color:var(--sub);margin:0 0 20px;max-width:38em}
+.h-learn-title{font-weight:700;color:var(--ink)!important;margin-bottom:8px!important}
+.h-course ul{margin:0 0 20px;padding:0;list-style:none;display:grid;gap:6px}
+.h-course ul li{position:relative;padding-left:22px}
+.h-course ul li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--c)}
+.h-needs{font-size:14px;color:var(--muted)!important;margin:0!important}
+.h-needs b{color:var(--sub)}
+
+.h-course-side{display:flex;flex-direction:column;gap:16px;padding-left:32px;border-left:1px solid var(--line)}
+.h-project{margin:0;font-size:13px;color:var(--muted)}
+.h-project b{display:block;font-size:18px;color:var(--ink);margin:2px 0 4px}
+.h-course-side .text-link{color:var(--c)}
+.h-course-side dl{display:flex;gap:28px;margin:0}
+.h-course-side dt{font-size:13px;color:var(--muted)}
+.h-course-side dd{margin:0;font-size:20px;font-weight:700}
+.h-course-cta{margin-top:auto;width:100%;padding:15px 16px;background:var(--c);box-shadow:0 10px 24px -8px var(--glow)}
+.h-course-cta:hover{background:var(--c);box-shadow:0 14px 30px -8px var(--glow)}
+.h-cta-note{font-size:12px;color:var(--muted);text-align:center;margin-top:-8px}
+
+.h-reviews{padding:72px 0 80px}
+.h-reviews-marquee{margin-top:32px}
+.h-reviews-marquee .h-marquee-track{animation-duration:60s}
+.h-review{width:360px;margin:0 8px;padding:24px;background:var(--surface);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;gap:12px}
+.h-review blockquote{margin:0;font-size:15px;line-height:1.6;color:var(--ink);flex:1}
+.h-review figcaption{font-size:13px;color:var(--muted)}
+.h-review figcaption b{display:block;font-size:15px;color:var(--ink)}
+.h-stars{color:#e8a20c;letter-spacing:2px;font-size:16px}
+.h-stars span{color:var(--line)}
+
+.h-dream{background:var(--ink);color:#fff;padding:88px 0}
+.h-dream h2{font-size:clamp(28px,3.4vw,44px);line-height:1.15;max-width:18ch;margin:0 0 40px}
+.h-dream ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.h-dream li{color:#a9b8c5;font-size:15px;line-height:1.6;padding-top:16px;border-top:2px solid #5fd3e3}
+.h-dream li:nth-child(2){border-color:#8a97f0}
+.h-dream li:nth-child(3){border-color:#fff}
+.h-dream li b{display:block;color:#fff;font-size:18px;margin-bottom:6px}
+.h-dream .h-actions{margin-top:48px}
+
+.h-articles{padding:72px 0 104px}
+.h-articles-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:28px}
+.h-articles-head .text-link{white-space:nowrap}
+.article-row.h-article{grid-template-columns:1fr auto}
+.h-reading{font-size:13px;color:var(--muted);white-space:nowrap}
+
+@media(max-width:1050px){
+  .h-hero{grid-template-columns:1fr;gap:40px;padding-top:64px}
+  .h-how{grid-template-columns:1fr 1fr}
+  .h-course{grid-template-columns:1fr;gap:24px}
+  .h-course-side{padding:24px 0 0;border-left:0;border-top:1px solid var(--line)}
+  .h-dream ul{grid-template-columns:1fr;gap:24px}
+}
+@media(max-width:760px){
+  .h-hero{padding:44px 0 40px}
+  .h-lead{font-size:16px}
+  .h-actions .button{flex:1 1 100%}
+  .h-proof{gap:20px;flex-wrap:wrap}
+  .h-proof dd{font-size:22px}
+  .h-stack{padding:20px 16px 14px 36px}
+  .h-stack li{flex-direction:column;align-items:flex-start;gap:10px}
+  .h-stack-tags{justify-content:flex-start}
+  .h-how{grid-template-columns:1fr;gap:16px}
+  .h-courses{padding-top:64px}
+  .h-rail::before{display:none}
+  .h-course{margin-left:0;padding:24px 20px}
+  .h-node{position:static;width:36px;height:36px;font-size:13px;box-shadow:none}
+  .h-review{width:290px}
+  .h-dream{padding:64px 0}
+  .h-articles-head{display:block}
+  .h-articles-head .text-link{display:inline-block;margin-top:12px}
+  .article-row.h-article{grid-template-columns:1fr}
+}
+/* No autoplay motion: marquees become swipeable rows, the pulse stops. */
+@media(prefers-reduced-motion:reduce){
+  .h-pulse,.h-stack li{animation:none}
+  .h-pulse{display:none}
+  .h-marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  .h-marquee-track{animation:none}
+  .h-marquee-set[aria-hidden]{display:none}
+}

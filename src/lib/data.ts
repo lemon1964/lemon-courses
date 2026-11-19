@@ -1,11 +1,30 @@
-export type Course = { id:number; title:string; description:string; outcome:string; stepik:string; demo:string; demoName:string; line:"ai"|"next" };
+export type Course = { id:number; title:string; description:string; outcome:string; stepik:string; demo:string; demoName:string; line:"ai"|"next"; step:string; summary:string; skills:string[]; needs:string; lessons:number; quizzes:number; price:number };
+// shortcut: lessons, quizzes and prices are copied from the Stepik API (Nov 2026), update them here when they change on Stepik.
 export const courses:Course[] = [
-{id:1,line:"ai",title:"AI на Django и Next I",description:"Фронтенд AI-чата: Next.js, компоненты, состояние, локализация и интерфейс",outcome:"AI-Chat UI",stepik:"https://stepik.org/a/250212",demo:"https://lemon1964.github.io/ai-chat-pages/",demoName:"AI-Chat UI"},
-{id:2,line:"ai",title:"AI на Django и Next II",description:"Django REST Framework, API, авторизация и подключение AI-сервисов к фронтенду",outcome:"AI-Chat",stepik:"https://stepik.org/a/250427",demo:"https://ai-chat-frontend-wy6h.onrender.com/",demoName:"AI-Chat"},
-{id:3,line:"ai",title:"LLM-Chat + Mermaid + ЮKassa",description:"Практическая связка фронтенда, Django API, платежей и ограничений доступа",outcome:"Микро-SaaS",stepik:"https://stepik.org/a/253246",demo:"https://ai-chat-frontend-wy6h.onrender.com/",demoName:"Микро-SaaS"},
-{id:4,line:"next",title:"Next.js I: JavaScript 2026",description:"App Router, загрузка данных, маршруты, URL-фильтры и деплой",outcome:"Goods Finder",stepik:"https://stepik.org/a/272213",demo:"https://goods-finder-js.vercel.app/",demoName:"Goods Finder"},
-{id:5,line:"next",title:"Next.js II: TypeScript 2026",description:"Типы, формы, Server Actions и структура растущего приложения",outcome:"Workbench Notes",stepik:"https://stepik.org/a/275811",demo:"https://workbench-ts.onrender.com/",demoName:"Workbench Notes"},
-{id:6,line:"next",title:"Next.js III: SEO, i18n 2026",description:"Локализованные URL, metadata, SSR, sitemap, robots и тесты",outcome:"EventMap",stepik:"https://stepik.org/a/286841",demo:"https://eventmap-seo.vercel.app/ru",demoName:"EventMap"},
+{id:1,line:"ai",step:"I",title:"AI на Django и Next I",description:"Фронтенд AI-чата: Next.js, компоненты, состояние, локализация и интерфейс",outcome:"AI-Chat UI",stepik:"https://stepik.org/a/250212",demo:"https://lemon1964.github.io/ai-chat-pages/",demoName:"AI-Chat UI",
+ summary:"Вы с нуля собираете интерфейс AI-чата на Next.js. Код идёт готовыми блоками по шагам, поэтому курс подходит и тем, кто только начинает.",
+ skills:["Разложить фронтенд по слоям: интерфейс, функции, сервисы, состояние","Хранить состояние приложения в Redux Toolkit","Переключать язык интерфейса между русским и английским","Показывать ответы нейросети в Markdown с подсветкой кода"],
+ needs:"Терминал, Node.js 20+, основы JavaScript",lessons:10,quizzes:15,price:990},
+{id:2,line:"ai",step:"II",title:"AI на Django и Next II",description:"Django REST Framework, API, авторизация и подключение AI-сервисов к фронтенду",outcome:"AI-Chat",stepik:"https://stepik.org/a/250427",demo:"https://ai-chat-frontend-wy6h.onrender.com/",demoName:"AI-Chat",
+ summary:"Вы доводите чат до рабочего продукта: бэкенд на Django, вход через Google, нейросети для текста, кода и картинок, голосовой ввод и публикация в интернете.",
+ skills:["Спроектировать бэкенд на Django REST Framework","Подключить несколько AI-моделей и переключаться между ними","Сделать авторизацию, голосовой ввод и озвучку ответов","Выложить бэкенд на Render, а фронтенд на GitHub Pages"],
+ needs:"Python 3.10+, Node.js 20+, понимание REST API",lessons:13,quizzes:22,price:2000},
+{id:3,line:"ai",step:"III",title:"LLM-Chat + Mermaid + ЮKassa",description:"Практическая связка фронтенда, Django API, платежей и ограничений доступа",outcome:"Микро-SaaS",stepik:"https://stepik.org/a/253246",demo:"https://ai-chat-frontend-wy6h.onrender.com/",demoName:"Микро-SaaS",
+ summary:"Вы превращаете AI-идею в небольшой сервис, который принимает оплату. Фронтенд, бэкенд, платежи, деплой и SEO уже собраны в рабочую схему, остаётся подставить свою идею.",
+ skills:["Принимать платежи через ЮKassa и обрабатывать уведомления об оплате","Открывать доступ к функциям после оплаты","Добавить в продукт свою функцию на примере диаграмм Mermaid с экспортом в SVG","Опубликовать сервис и подготовить его к поиску"],
+ needs:"Python 3.10+, Node.js 20+, опыт с REST и Git",lessons:30,quizzes:52,price:3000},
+{id:4,line:"next",step:"I",title:"Next.js I: JavaScript 2026",description:"App Router, загрузка данных, маршруты, URL-фильтры и деплой",outcome:"Goods Finder",stepik:"https://stepik.org/a/272213",demo:"https://goods-finder-js.vercel.app/",demoName:"Goods Finder",
+ summary:"Вы по шагам разбираетесь в App Router и собираете каталог товаров Goods Finder, который растёт от урока к уроку.",
+ skills:["Строить маршруты и общие макеты страниц","Загружать данные на сервере и обрабатывать ошибки","Делать поиск и фильтры через параметры URL","Писать своё API на Route Handlers и выкладывать приложение"],
+ needs:"JavaScript, основы React, терминал и Git",lessons:21,quizzes:40,price:2000},
+{id:5,line:"next",step:"II",title:"Next.js II: TypeScript 2026",description:"Типы, формы, Server Actions и структура растущего приложения",outcome:"Workbench Notes",stepik:"https://stepik.org/a/275811",demo:"https://workbench-ts.onrender.com/",demoName:"Workbench Notes",
+ summary:"Вы переводите приложение на TypeScript и перестаёте путаться в типах на сервере и клиенте. Проект курса — приложение для заметок Workbench Notes.",
+ skills:["Типизировать данные между сервером и клиентом","Проверять формы через React Hook Form и Zod","Сохранять данные через Server Actions с мгновенным откликом интерфейса","Перестроить растущий код по функциям приложения"],
+ needs:"React и App Router на уровне первого курса. TypeScript знать не нужно",lessons:24,quizzes:46,price:3000},
+{id:6,line:"next",step:"III",title:"Next.js III: SEO, i18n 2026",description:"Локализованные URL, metadata, SSR, sitemap, robots и тесты",outcome:"EventMap",stepik:"https://stepik.org/a/286841",demo:"https://eventmap-seo.vercel.app/ru",demoName:"EventMap",
+ summary:"Вы собираете EventMap — афишу событий, которую находят поисковики. Сайт работает на двух языках и хранит избранное пользователя в облаке.",
+ skills:["Настроить metadata, canonical, hreflang, sitemap и robots","Сделать русскую и английскую версии сайта","Подключить внешний API и вход через Supabase","Покрыть приложение тестами Vitest и Playwright и выложить на Vercel"],
+ needs:"JavaScript, базовый TypeScript, React",lessons:42,quizzes:82,price:3500},
 ];
 export const articles = [
 {slug:"seo-nextjs-app-router",src:"статья_1",title:"Схема технической индексации в Next.js",seoTitle:"SEO в Next.js App Router: sitemap, robots, canonical и языковые URL",description:"SEO в Next.js App Router: sitemap, robots, canonical и языковые URL",metaDescription:"Схема технической индексации в Next.js на примере архитектуры EventMap. Sitemap, robots, canonical и языковые URL.",courseId:6,reading:"8 минут",embeddedCta:false},
@@ -36,3 +55,15 @@ export const articles = [
 {slug:"react-query-nextjs-server-fetch",src:"статья_26",title:"Когда использовать React Query, а когда загрузку данных Next.js",seoTitle:"React Query и Next.js: когда нужен useQuery, а когда fetch",description:"Загрузка и обновление данных через TanStack Query, queryKey, кэширование и сравнение с серверными компонентами Next.js",metaDescription:"Загрузка и обновление данных через TanStack Query, queryKey, кэширование и сравнение с серверными компонентами Next.js",courseId:5,reading:"7 минут",embeddedCta:true},
 ] as const;
 export type Article = (typeof articles)[number];
+
+// Real Stepik reviews (stepik.org/api/course-reviews), quoted verbatim. One per author.
+export const reviews = [
+{name:"Анна",courseId:5,score:5,text:"Прошла курс и могу сказать однозначно — на высоте! Лаконичная подача материала в совокупности с большим числом практических учебных паттернов. И конечно курсовой проект с встроенным редактором Quill, прям готовая архитектурная заготовка для множества собственных идей на будущее."},
+{name:"Олег",courseId:3,score:5,text:"Встраиваемый в любой свой проект агрегатор нейромоделей просто вау, готовый в кодах. Плюс интеграция ЮКассы, по которой материала негусто вообщем нигде. Рекомендую курс на все 100!"},
+{name:"Андрей",courseId:4,score:5,text:"Отличный курс, есть все необходимое для понимания Next! Пришел на курс после изучения React, чтобы закрыть для себя проблемы сервер/клиент в Next и другие неясности. Получил базу для дальнейшего самостоятельного развития."},
+{name:"Иван П.",courseId:1,score:5,text:"Отличный курс! Прочитал, взял готовый блок в конце и сразу запустил. Есть интересные штучки)"},
+{name:"Макс",courseId:1,score:4,text:"Курс можно пройти за пару часов, если знаешь React более менее. Есть интересные фишки, норм."},
+{name:"Катя",courseId:1,score:5,text:"Рекомендую! Норм, чисто, красиво, понятно."},
+];
+// shortcut: proof numbers copied from Stepik in Nov 2026 (424 learners, 15 reviews averaging 4.93), refresh by hand.
+export const proof = {learners:"400+",rating:"4,9",reviewsCount:15};
